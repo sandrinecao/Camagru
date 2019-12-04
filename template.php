@@ -29,7 +29,6 @@ session_start();
         <?php
         if ($_SESSION['loggedin'] != ""){
             echo'
-                
                 <td style="width:10%"><a href="http://'.$_SERVER['HTTP_HOST'].'/user/account.php"><img src="/public/icons/user.png" alt="login"></a></td>
                 <td style="width:10%"><a href="http://'.$_SERVER['HTTP_HOST'].'/user/logout.php"><img src="/public/icons/logout.png" alt="logout"></a></td>      
                 ';
