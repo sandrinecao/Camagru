@@ -27,7 +27,7 @@ h1{
     font-size: 53px;
     color: white;
     text-align: center;
-    margin:0;
+    margin: 0;
 }
 
 h2{
@@ -72,7 +72,6 @@ input[type="button"]{
     margin-right: auto;
     margin-left: auto;
     margin-top: 50px;
-    
 }
 
 .main a:hover{
@@ -100,35 +99,32 @@ input::placeholder{
 }
 
 #footer {
-    position:fixed;
-    bottom:0;
+    position: fixed;
+    bottom: 0;
     height: 40px;
     background: linear-gradient(351deg, rgba(212,227,193,1) 0%, rgba(45,89,145,1) 100%);
     opacity: 0.7;
     width:100%;
-    
 }
 
 @media screen and (max-width: 770px){
     .background {border-radius: 0px}
-    
 }
 
 /*--------------------------------------------------------HEADER---------------------------------------------------------------*/
 
-
 .container
 {  
-    max-width:1000px;
-	margin-left:auto;
-	margin-right:auto;
-    width:100%;
+    max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+    width: 100%;
     border: solid;
     border: 2px
 }
 
 #C{
-    display:none;
+    display: none;
 }
 
 @media screen and (max-width: 450px)
@@ -194,7 +190,6 @@ input::placeholder{
     margin-top: -28px;
 }
 
-
 #buttons{
     margin-top: -138px;
     margin-left: 30%;
@@ -233,13 +228,12 @@ input::placeholder{
     color: black;
     background-image: linear-gradient(to bottom, #dff5f4, #e1edf2, #e5fcf0);
 }
+
 .pagination #number:hover{
     transform: scale(1.1);
 }
 
-
 @media screen and (max-width: 400px){
-
 }
 
 /*--------------------------------------------------------LIKES/COMMENTS--------------------------------------------------------------*/
@@ -250,7 +244,6 @@ input::placeholder{
     justify-content: space-around;
     padding: 57px 0px;
 }
-
 
 #likeComPhoto #imgLikeCom{
     text-align: center;
@@ -322,7 +315,7 @@ input::placeholder{
     font-size: 14px;
     flex-grow: 100;
     border: none;
-    background-color: whitef5;
+    background-color: white;
 }
   
 #sendBtt{
@@ -338,20 +331,17 @@ input::placeholder{
 @media screen and (max-width: 550px){
     #likeComPhoto{padding: 14px 0px;}
     #likeComPhoto #imgLikeCom{height: 288px; width: 310px;}
-    #imgLikeCom img{    width: 290px; height: 290px;}
+    #imgLikeCom img{width: 290px; height: 290px;}
     .likeIcon {margin-left: 60px;}
-    .commentForm{    margin-top: 16px;}
+    .commentForm{margin-top: 16px;}
     #box{max-width: 310px;}
 }
 
 @media screen and (max-width: 870px){
-    .commentForm{    margin-top: 16px;}
+    .commentForm{margin-top: 16px;}
 }
 
-
 /*--------------------------------------------------------LOGIN---------------------------------------------------------------*/
-
-
 
 .loginForm{
     width: 65%;
@@ -364,6 +354,7 @@ input::placeholder{
     padding: 1px;
     min-width: 300px;
 }
+
 .loginForm #title2{
     margin-bottom: 20px;
     padding-top: 20px;
@@ -432,7 +423,6 @@ input::placeholder{
     font-weight: bold;
 }
 
-
 /*--------------------------------------------------------ACCOUNT---------------------------------------------------------------*/
 
 #test{
@@ -471,13 +461,16 @@ input::placeholder{
   width: 145px;
   margin-right:25px;
 }
+
 #account nav,
 #account article {
   flex-basis: auto;
 }
+
 #account nav {
   order: 0;
 }
+
 #account nav {
     display: grid;
     background: rgba(229,252,240,0.5);
@@ -513,8 +506,7 @@ input::placeholder{
     background-color:  #6ef5af;
 }
 .accountForm{
-    width:82%;
-    /* border-radius: 15px; */
+    width: 82%;
     padding: 1px;
 }
 
@@ -580,6 +572,8 @@ input::placeholder {
 
 @media (max-width: 770px) {
     .Notif{margin-top:0px}
+    #notif{padding: 7px; margin: 76px 0 16px; display: -webkit-box;}
+    #checkbox{height: 13px; margin: -2px 20px 20px 15px}
     #account article .loginForm form p {font-size: 17px;}
 }
 
@@ -657,7 +651,6 @@ input::placeholder {
 	text-align:middle;
 }
 
-
 #camera #video_div {
     margin-top: 50px;
     margin-bottom: 20px;
@@ -725,6 +718,7 @@ input::placeholder {
     font-size: 22px;
     color: white;
 }
+
 #camera #upload label:hover{
     transform: scale(1.1);
 }
@@ -776,7 +770,6 @@ input::placeholder {
     margin-right: 34%;
     margin-left: 33%;
     margin-bottom: 20px;
-    
 }
 /*--------------------------------------------------------CAMERA GALLERY---------------------------------------------------------------*/
 
@@ -809,13 +802,13 @@ input::placeholder {
 @media screen and (max-width: 660px) {
 	#camera #sticker_div {width: 100%;height:auto;float: none; min-height: 70px;overflow-y: hidden;overflow-x: auto;white-space: nowrap; float:none}
     #camera #video_div {margin-bottom:20px; width: 94%; height: inherit; margin-right: auto; margin-left:auto; float:none}
-    #camera #live_video {    width: 96%;}
+    #camera #live_video {width: 96%;}
 	#camera #sticker_div img {width:20%;}
 	#camera {width: 100%}
 	#camera #camera_gallery {width: 95%; margin-right: auto; margin-left:auto}
     #camera .stickerImg {height: 95%; width: auto}
-    #camera  #upload label {width: 37%;    margin-left: 38px;}
-    #camera #upload #uploadBtt {    width: 37%;margin:0}
+    #camera  #upload label {width: 37%; margin-left: 38px;}
+    #camera #upload #uploadBtt {width: 37%; margin:0}
     #snap{margin-left: 33%; margin-right: 0%;}
 }
 
