@@ -1,7 +1,6 @@
 <?php 
 require("config/database.php");
 
-
 $PhotoPerPage = 9;
 $query = $pdo->query('SELECT id_img FROM picture');
 $AllPhotos = $query->rowCount();
@@ -13,9 +12,6 @@ if(isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] > 0 && $_GET['
    $page = 1;
 }
 $start = ($page-1) * $PhotoPerPage;
-
-
-
 ?>
 
 <?php ob_start();?>
