@@ -100,7 +100,7 @@ if (isset($_POST['delete_account'])){
                         <form action="" method="post">
                             <span><?php echo $error; ?></span>
                             <input type="password" style="margin-top:41px;" name="password" placeholder="Enter password to delete account" value="<?php echo $password; ?>" required>
-                            <input type="submit" id="saveBtt" style="margin-top: 15px;font-size: 22px;" name="delete_account" value="Delete Account">
+                            <input type="submit" id="saveBtt" style="margin-top: 15px;font-size: 22px;" name="delete_account" value="Delete">
                         </form>
                     </div><br>
                 </div>

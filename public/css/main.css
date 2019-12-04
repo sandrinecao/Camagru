@@ -33,7 +33,7 @@ h1{
 h2{
     font-size: 50px;
     text-shadow: 4px 2px 1px #67e8a6;
-    font-family: Permanent Marker;
+    font-family: 'Permanent Marker';
     color: #174873;
     margin: 0;
     display: block;
@@ -43,14 +43,14 @@ h2{
 
 h3{
     font-size: xx-large;
-    font-family: Raleway;
+    font-family: 'Raleway';
 }
 
 p{
     text-align: center;
-    font-size:18px;
+    font-size: 18px;
     color: white;
-    font-family: Raleway;
+    font-family: 'Raleway';
 }
 
 a{
@@ -65,6 +65,8 @@ input[type="submit"]{
 input[type="button"]{
 	cursor : pointer;
 }
+
+
 
 .main{
     max-width: 1000px;
@@ -123,7 +125,8 @@ input::placeholder{
     border: 2px
 }
 
-#C{
+#C
+{
     display: none;
 }
 
@@ -147,7 +150,7 @@ input::placeholder{
 .container a:hover
 {
     color: #FFF;
-    font: 20px Raleway;
+    font: 20px 'Raleway';
     text-decoration: underline;
     padding: 10px 10px;
     display: inline-flex;
@@ -358,7 +361,7 @@ input::placeholder{
 .loginForm #title2{
     margin-bottom: 20px;
     padding-top: 20px;
-    font-family: Permanent Marker;
+    font-family: 'Permanent Marker';
 }
 
 .loginForm input, #camera #upload button{
@@ -434,7 +437,7 @@ input::placeholder{
 #account{
 	flex: 1 1 auto;
     display: flex;
-    font-family: Raleway;
+    font-family: 'Raleway';
 }
 
 #account nav a{
@@ -498,12 +501,12 @@ input::placeholder{
     text-shadow: 4px 2px 1px #67E8A6;
     color: #174873;
     margin-top: 20px;
-    font-family: Permanent Marker;
+    font-family: 'Permanent Marker';
 }
 
 #saveBtt{
     border: 3px solid #c4f2da;     
-    background-color:  #6ef5af;
+    background-color: #6ef5af;
 }
 .accountForm{
     width: 82%;
@@ -517,12 +520,13 @@ input::placeholder{
 
 input::placeholder {
     overflow: visible;
+    text-overflow:ellipsis;
 }
 
 @media (max-width: 770px) {
     #test {padding:0}
     #account {flex-direction: column;}
-    #account nav { height: 286px; width: 102%; margin: 14px -16px -27px -10px; background: none;grid-row-gap: 0px; grid-template-rows: 54px 54px 54px 54px 54px} 
+    #account nav {height: 286px; width: 102%; margin: 14px -16px -27px -10px; background: none;grid-row-gap: 0px; grid-template-rows: 54px 54px 54px 54px 54px} 
     #account article {height: 368px; background: none;}
     #account nav a{border-radius:0px; margin:2px}
     article h2{font-size: 39px;}
@@ -555,14 +559,6 @@ input::placeholder {
     color: white;
     cursor:pointer;
 }
-#pNot{
-    display: -webkit-inline-box;
-    text-shadow: none;
-    color: #4bb7ec;
-}
-#pNot:hover{
-    color:white;
-}
 
 #checkbox{
     width: -webkit-fill-available;
@@ -585,7 +581,7 @@ input::placeholder {
 
 @media (max-width: 770px) {
     .ModPwd{margin-top:0 ;min-height: 360px;}
-    #account article .loginForm  input[type="submit"] {width: 45%;}
+    #account article .loginForm input[type="submit"] {width: 45%;}
     .loginForm input{width: 89%; margin:7px}
 }
 
@@ -648,7 +644,7 @@ input::placeholder {
 	margin-right: auto;
 	margin-left: auto;
 	padding-bottom: 25px;
-	text-align:middle;
+	text-align: middle;
 }
 
 #camera #video_div {
@@ -657,7 +653,7 @@ input::placeholder {
 	background-color:white;
 	padding: 10px;
 	width: 70%;
-	float:left;
+	float: left;
 	position : relative;
 	height: 42vw;
 	max-height: 420px;
@@ -714,7 +710,7 @@ input::placeholder {
     border-radius: 12px;
     cursor: pointer;
     font-size: 18px;
-    font-family: Cambria;
+    font-family: 'Cambria';
     font-size: 22px;
     color: white;
 }
@@ -807,7 +803,7 @@ input::placeholder {
 	#camera {width: 100%}
 	#camera #camera_gallery {width: 95%; margin-right: auto; margin-left:auto}
     #camera .stickerImg {height: 95%; width: auto}
-    #camera  #upload label {width: 37%; margin-left: 38px;}
+    #camera #upload label {width: 37%; margin-left: 38px;}
     #camera #upload #uploadBtt {width: 37%; margin:0}
     #snap{margin-left: 33%; margin-right: 0%;}
 }

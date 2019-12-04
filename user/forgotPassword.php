@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <input type="text" placeholder="Enter your login" name="username">
           <input type="email" placeholder="Enter your email" name="email">
           <span><?php echo $error; ?></span><br />
-          <input type="submit" value="Send Link" name="forgotPassword">
+          <input type="submit" value="Send" name="forgotPassword">
         </form>
     </div><br/>
     <div class="loginForm">

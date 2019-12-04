@@ -148,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="password" name="password" placeholder="Enter Password" value="<?php echo $password; ?>">
             <span><?php echo $confirm_password_err; ?></span>
             <input type="password" name="confirm_password" placeholder="Confirm Password" value="<?php echo $confirm_password; ?>">
-            <input type="submit" value="Register">
+            <input type="submit" value="Join!">
         </form>
     </div><br>
     <div class="loginForm">
