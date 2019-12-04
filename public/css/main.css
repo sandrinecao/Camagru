@@ -1,0 +1,824 @@
+@font-face {
+	font-family: 'Permanent Marker', cursive;
+	src: local('☺'), url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+body{
+    background: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin:0;
+    padding:0;
+    height:100%;
+    background: url("/public/icons/triangles.png") no-repeat center fixed; 
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+header{
+    background: linear-gradient(351deg, rgba(212,227,193,1) 0%, rgba(45,89,145,1) 100%);
+	display: flex;
+	justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+h1{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 53px;
+    color: white;
+    text-align: center;
+    margin:0;
+}
+
+h2{
+    font-size: 50px;
+    text-shadow: 4px 2px 1px #67e8a6;
+    font-family: Permanent Marker;
+    color: #174873;
+    margin: 0;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h3{
+    font-size: xx-large;
+    font-family: Raleway;
+}
+
+p{
+    text-align: center;
+    font-size:18px;
+    color: white;
+    font-family: Raleway;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+input[type="submit"]{
+	cursor: pointer;
+}
+
+input[type="button"]{
+	cursor : pointer;
+}
+
+.main{
+    max-width: 1000px;
+    min-width: 320px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    
+}
+
+.main a:hover{
+    text-decoration: underline;
+}
+
+.background{
+    background-image: linear-gradient(to bottom, #dff5f4, #e1edf2, #e5fcf0);
+    border-radius: 47px;
+}
+
+.galleryB{
+    background-image: linear-gradient(to bottom, rgba(223,245,244,0.4), rgba(229,252,240,0.7));
+}
+
+@media screen and (max-width: 1000px) {
+    .main {width:100%;}
+    #background{border-radius: 0}
+}
+
+input::placeholder{
+    color: #94d0ef;
+    font-size:20px;
+    padding:10px;
+}
+
+#footer {
+    position:fixed;
+    bottom:0;
+    height: 40px;
+    background: linear-gradient(351deg, rgba(212,227,193,1) 0%, rgba(45,89,145,1) 100%);
+    opacity: 0.7;
+    width:100%;
+    
+}
+
+@media screen and (max-width: 770px){
+    .background {border-radius: 0px}
+    
+}
+
+/*--------------------------------------------------------HEADER---------------------------------------------------------------*/
+
+
+.container
+{  
+    max-width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+    width:100%;
+    border: solid;
+    border: 2px
+}
+
+#C{
+    display:none;
+}
+
+@media screen and (max-width: 450px)
+{
+    .container {margin: 3px}
+    .container #C {display: block;}
+    .container td a h1 {font-size:40px}
+    .container a {width:100%}
+    .container #Cam_logo {display:none}
+}
+
+.container a
+{
+    color: #FFF;
+    padding: 10px 10px;
+    display: inline-flex;
+    width: 60px;
+}
+
+.container a:hover
+{
+    color: #FFF;
+    font: 20px Raleway;
+    text-decoration: underline;
+    padding: 10px 10px;
+    display: inline-flex;
+    width: 60px;
+}
+
+/*--------------------------------------------------------GALLERY--------------------------------------------------------------*/
+
+#title{
+    text-align: center;
+    margin-bottom: -6px;
+    padding-top: 16px;
+    font-size:78px;
+}
+
+#photoDisplay{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 16px 0px 25px 0px;
+}
+
+#photoDisplay #img{
+    cursor: pointer;
+    text-align: center;
+    margin: 10px;
+    height: 248px;
+    width: 270px;
+    padding-top: 9px;
+}
+
+#photoDisplay #img:hover img{
+    filter:brightness(40%);
+}
+
+#img img{
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    margin-top: -28px;
+}
+
+
+#buttons{
+    margin-top: -138px;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#photoDisplay #img:hover #buttons{
+    opacity: 1;
+    filter: brightness(100%);
+}
+
+/*--------------------------------------------------------PAGINATION--------------------------------------------------------------*/
+
+.pagination {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+    justify-content: center;
+    margin: 25px 0px 60px 0px;
+    font-family: Permanent Marker;
+}
+
+#number{
+    width: 40px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 2px 5px 2px 5px;
+    color: black;
+    background-image: linear-gradient(to bottom, #dff5f4, #e1edf2, #e5fcf0);
+}
+.pagination #number:hover{
+    transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 400px){
+
+}
+
+/*--------------------------------------------------------LIKES/COMMENTS--------------------------------------------------------------*/
+
+#likeComPhoto{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 57px 0px;
+}
+
+
+#likeComPhoto #imgLikeCom{
+    text-align: center;
+    height: 448px;
+    width: 470px;
+    padding-top: 9px;
+    position: relative;
+}
+
+#imgLikeCom img{
+    width: 450px;
+    height: 450px;
+    object-fit: contain;
+    margin-top: -28px;
+}
+
+#img_info{
+    text-align: left;
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    margin: -27px 0px 0px 15px;
+    font-family: 'Permanent Marker';
+}
+
+.likeIcon{
+    font-size: 44px;
+    font-family: 'Permanent Marker';
+    color: black;
+    margin-top: -52px;
+    margin-left: 133px;
+    position: absolute;
+}
+
+#box{
+    max-width:400px;
+    width: 100%;
+}
+
+.commentForm{
+    width: 100%;
+    background: #94d1ef;
+}
+
+.comtxt{
+    text-align: left;
+    padding-left: 18px;
+    font-family: 'Raleway';
+    color: black;
+    margin: 7px;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#usertxt{
+    color: blue;
+} 
+
+.comment_form {
+	display: flex;
+	outline: none;
+}
+
+.textbox {
+    outline: none;
+    overflow: hidden;
+    resize: none;
+    font-size: 14px;
+    flex-grow: 100;
+    border: none;
+    background-color: whitef5;
+}
+  
+#sendBtt{
+    flex-grow: 15;
+    border: none;
+    background-color: #c4f2da;
+    font-size: 13px;
+    font-weight: bold;
+    color: #174873;
+    margin:0;
+}
+
+@media screen and (max-width: 550px){
+    #likeComPhoto{padding: 14px 0px;}
+    #likeComPhoto #imgLikeCom{height: 288px; width: 310px;}
+    #imgLikeCom img{    width: 290px; height: 290px;}
+    .likeIcon {margin-left: 60px;}
+    .commentForm{    margin-top: 16px;}
+    #box{max-width: 310px;}
+}
+
+@media screen and (max-width: 870px){
+    .commentForm{    margin-top: 16px;}
+}
+
+
+/*--------------------------------------------------------LOGIN---------------------------------------------------------------*/
+
+
+
+.loginForm{
+    width: 65%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(to top, #dff5f4, #e1edf2, #e5fcf0);
+    border-radius: 15px;
+    box-shadow: 0px 0px 1.1em white, 0.2em 0 0.5em #8ed0e1;
+    padding: 1px;
+    min-width: 300px;
+}
+.loginForm #title2{
+    margin-bottom: 20px;
+    padding-top: 20px;
+    font-family: Permanent Marker;
+}
+
+.loginForm input, #camera #upload button{
+    width: 65%;
+    height: 40px;
+    font-size: 20px;
+    color: #174873;
+    padding: 3px;
+    border-radius: 12px;
+    border: 1.25px solid white;
+    margin: 17px;
+}
+
+.loginForm input[type="submit"], #camera #upload button{
+    background-color: #174873;
+    width: 31%;
+    height: 50px;
+    font-size: 25px;
+    color: white;
+    border: 2px solid #67E8A6;
+}
+
+.loginForm input[type="submit"]:hover, #camera #upload button:hover{
+    opacity: 0.6;
+    background-color: green;
+    border:3px solid #94d1ef; 
+} 
+
+.loginForm form p{
+    color: #174873;
+    font-size: 20px;
+    margin-top: 25px;
+    text-shadow: 1px 1px 0px white;
+}
+
+.loginForm form p a{
+    color:#174873;
+}
+
+.loginForm p{
+    color: #174873;
+    font-size: 20px;
+    text-shadow: 1px 1px 0px white;
+}
+.loginForm p a{
+    color: green;
+}
+
+.loginForm p a:hover{
+    text-decoration: underline;
+}
+
+ #actMsg{
+    color:red;
+    margin-bottom: -20px;
+    margin-top: 20px;
+}
+
+ .loginForm form span{
+    display: block;
+    color:#174873; 
+    font-weight: bold;
+}
+
+
+/*--------------------------------------------------------ACCOUNT---------------------------------------------------------------*/
+
+#test{
+    display: flex;
+    flex-direction: column;    
+    padding: 1em;
+}
+
+#account{
+	flex: 1 1 auto;
+    display: flex;
+    font-family: Raleway;
+}
+
+#account nav a{
+    background-image: linear-gradient(to right top, #e1edf2, #dff5f4, #e5fcf0);
+    box-shadow: 0px 0px 0.15em #6cf1ac, 0.15em 0 0.25em #67e8a600;
+    padding: 15px;
+    font-size: 17px;
+    margin: 11px 10px -6px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    color: #174873;
+}
+
+#account article {
+    flex: 1;
+}
+
+#account nav {
+    order: -1;
+}
+
+#account nav {
+  width: 145px;
+  margin-right:25px;
+}
+#account nav,
+#account article {
+  flex-basis: auto;
+}
+#account nav {
+  order: 0;
+}
+#account nav {
+    display: grid;
+    background: rgba(229,252,240,0.5);
+    height: 376px;
+    margin: 43px 25px 0px 0px;
+    border-radius: 15px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px 65px 65px 65px 65px;
+    grid-row-gap: 8px;
+}
+
+#account article {
+    height: 549px;
+    background: rgba(229,252,240,0.4);
+    margin: 14px 1px -3px 5px;
+    border-radius: 26px;
+}
+
+#account nav a:hover{
+    background-image: radial-gradient(circle, #6ef5af, #6cf1ac, #69eca9, #67e8a6, #65e4a3);
+    color: white;
+}
+
+#subTitle{
+    text-shadow: 4px 2px 1px #67E8A6;
+    color: #174873;
+    margin-top: 20px;
+    font-family: Permanent Marker;
+}
+
+#saveBtt{
+    border: 3px solid #c4f2da;     
+    background-color:  #6ef5af;
+}
+.accountForm{
+    width:82%;
+    /* border-radius: 15px; */
+    padding: 1px;
+}
+
+.EdProf{
+    min-height:364px; 
+    margin-top: 90px;
+}
+
+input::placeholder {
+    overflow: visible;
+}
+
+@media (max-width: 770px) {
+    #test {padding:0}
+    #account {flex-direction: column;}
+    #account nav { height: 286px; width: 102%; margin: 14px -16px -27px -10px; background: none;grid-row-gap: 0px; grid-template-rows: 54px 54px 54px 54px 54px} 
+    #account article {height: 368px; background: none;}
+    #account nav a{border-radius:0px; margin:2px}
+    article h2{font-size: 39px;}
+    #title {font-size: 64px;}
+    #account article .loginForm {border-radius:0px;width: 100%; }
+    .EdProf {margin-top:0px}
+}
+
+@media (max-width: 320px){
+    #account nav { width: 103%;}
+}
+
+/*--------------------------------------------------------NOTIFICATIONS---------------------------------------------------------------*/
+.Notif{
+    min-height:364px; 
+    margin-top: 90px;
+}
+
+#notif {
+    border: 2px solid #67e8a6;
+    padding: 25px;
+    margin: 0 0 10px;
+    background: #c4f2da;
+    border-radius: 20px;
+}
+   
+#notif:hover {
+    background:#67e8a6;
+    border: 2px solid #c4f2da;
+    color: white;
+    cursor:pointer;
+}
+#pNot{
+    display: -webkit-inline-box;
+    text-shadow: none;
+    color: #4bb7ec;
+}
+#pNot:hover{
+    color:white;
+}
+
+#checkbox{
+    width: -webkit-fill-available;
+    height: 16px;
+    margin: 93px 20px 20px 20px;
+}
+
+@media (max-width: 770px) {
+    .Notif{margin-top:0px}
+    #account article .loginForm form p {font-size: 17px;}
+}
+
+/*--------------------------------------------------------EDIT PASSWORD---------------------------------------------------------------*/
+.ModPwd{
+    min-height: 361px;
+    margin-top: 72px;
+}
+
+@media (max-width: 770px) {
+    .ModPwd{margin-top:0 ;min-height: 360px;}
+    #account article .loginForm  input[type="submit"] {width: 45%;}
+    .loginForm input{width: 89%; margin:7px}
+}
+
+/*--------------------------------------------------------DELETE PHOTOS---------------------------------------------------------------*/
+.DelPho{
+    min-height:364px; 
+    margin-top: 13px;
+    width: 91%;
+}
+
+#deletePhotos{
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    height: 321px;
+    margin-left: 22px;
+    width: 92%;
+    padding-top: 38px;
+    
+}
+
+#deletePhotos #img{
+    height: 151px;
+    width: 199px;
+    vertical-align: middle;
+    border-radius: 74px;
+    float: left;
+}
+
+#deletePhotos #img img{
+    width: 197px;
+    height: 110px;
+    object-fit: scale-down;
+}
+
+#check_del{
+    cursor: pointer;
+    width: fit-content;
+    margin-top: -4px;
+}
+
+@media (max-width: 770px) {
+    .DelPho{margin-top:0 ;min-height: 360px;}
+    #account article #deletePhotos{height: 193px;width: 87%;}
+}
+
+/*--------------------------------------------------------DELETE ACCOUNT---------------------------------------------------------------*/
+.DelAcc{
+    min-height:220px;
+    margin-top:128px;
+}
+
+@media (max-width: 770px) {
+    .DelAcc{margin-top:0 ;min-height: 360px;}
+}
+/*--------------------------------------------------------CAMERA---------------------------------------------------------------*/
+
+#camera {
+    width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 25px;
+	text-align:middle;
+}
+
+
+#camera #video_div {
+    margin-top: 50px;
+    margin-bottom: 20px;
+	background-color:white;
+	padding: 10px;
+	width: 70%;
+	float:left;
+	position : relative;
+	height: 42vw;
+	max-height: 420px;
+	min-width: 285px;
+	min-height:236px;
+}
+
+#camera #live_video {
+    width: 100%;
+	height: 100%;
+    z-index: 1;
+    position: absolute;
+}
+
+#overlay{
+    height: 50%;
+    width: 40%;
+}
+
+#camera #video_div #video {
+	width: 100%;
+	z-index:0;
+}
+#camera #video_div #camera_img {
+	width:100%;
+	z-index:0;
+	object-fit: cover;
+	display:none;
+	height:inherit;
+	max-height: 420px;
+	min-width: 315px;
+    min-height: 236px;
+}
+/*--------------------------------------------------------UPLOAD PICTURE---------------------------------------------------------------*/
+
+#camera form {
+    height: 40px;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+    min-width: 200px;
+}
+
+#camera #upload label{
+    border: 2px solid #174873;
+    background: white;
+    width: 21%;
+    height: 32px;
+    text-align: center;
+    padding: 3px 3px 3px 3px;
+    padding-top: 11px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: Cambria;
+    font-size: 22px;
+    color: white;
+}
+#camera #upload label:hover{
+    transform: scale(1.1);
+}
+
+#camera #upload #uploadBtt{
+    margin-top:0px;
+    width:21%;
+    display: none;
+}
+/*--------------------------------------------------------FILTERS---------------------------------------------------------------*/
+
+#camera #sticker_div{
+	background-color: #c4f2da;
+	width: 25%;
+    max-height: 470px;
+    margin-top: 50px;
+	float: right;
+}
+
+#camera #sticker_div img{
+    width: 35%;
+    margin-left: 63px;
+    margin-top: 11px;
+    cursor: pointer;
+}
+
+.stickerImg{
+    background: rgb(148, 209, 237);
+    border: 3px solid white;
+    border-radius: 20px;
+}
+
+.stickerImg:hover, .active{
+    opacity: 0.8;
+    background: #e1eef2;
+    border: 3px solid #94d1ef;
+}
+
+.active{
+    opacity:1;
+}
+    
+#snap{
+    border: 2px solid #174873;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin-right: 34%;
+    margin-left: 33%;
+    margin-bottom: 20px;
+    
+}
+/*--------------------------------------------------------CAMERA GALLERY---------------------------------------------------------------*/
+
+#camera #camera_gallery {
+	margin-top: 1px;
+    padding: 10px 0px 0px 10px;
+    background-color: #c4f2da;
+	border: 3px solid#c4f2da;
+	overflow-y:hidden;
+	overflow-x:auto;
+	width: 97%;
+	white-space: nowrap;
+	min-height: 120px;
+}
+
+#camera #camera_gallery #photo {
+	width: 20%;
+	padding: 2px;	
+	min-width: 150px
+}
+
+#text-camera{
+    text-align:center;
+    font-size:18px;
+    color: #174873;
+    margin-bottom: auto;
+}
+
+
+@media screen and (max-width: 660px) {
+	#camera #sticker_div {width: 100%;height:auto;float: none; min-height: 70px;overflow-y: hidden;overflow-x: auto;white-space: nowrap; float:none}
+    #camera #video_div {margin-bottom:20px; width: 94%; height: inherit; margin-right: auto; margin-left:auto; float:none}
+    #camera #live_video {    width: 96%;}
+	#camera #sticker_div img {width:20%;}
+	#camera {width: 100%}
+	#camera #camera_gallery {width: 95%; margin-right: auto; margin-left:auto}
+    #camera .stickerImg {height: 95%; width: auto}
+    #camera  #upload label {width: 37%;    margin-left: 38px;}
+    #camera #upload #uploadBtt {    width: 37%;margin:0}
+    #snap{margin-left: 33%; margin-right: 0%;}
+}
+
+@media screen and (max-width: 950px){
+    #camera #sticker_div img {margin-left:45px}
+}
