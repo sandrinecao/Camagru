@@ -45,7 +45,7 @@ session_start();
 </div>
 <div style="margin-bottom: 43px;"></div>
 <div id="footer">
-<p style="margin: 10px;">©scao 2019 - 42 Paris School</p>
+<p style="margin: 10px;">©scao 2019 - 42 Paris</p>
 </div>
 </body>
 </html>
