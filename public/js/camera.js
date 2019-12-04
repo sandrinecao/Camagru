@@ -1,3 +1,4 @@
+// Initialize all variables according to HTML elements
 var canvas = document.getElementById('canvas');
 var canvasCopy = document.getElementById("canvasCopy");
 var context = canvas.getContext('2d');
@@ -5,6 +6,7 @@ var video = document.getElementById('video');
 var snap = document.getElementById('snap');
 var overlay_image = document.getElementById("overlay");
 
+//activates webcam
 navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 640, height: 480 } }).then(mediaStream => {
     video.srcObject = mediaStream
     video.onloadedmetadata = function(e) {
@@ -16,6 +18,7 @@ function(err) {
     console.log("An error occured! " + err);
 });
 
+// Detects which filter was chosen
 snap.addEventListener('click', function() {
     var currentSticker = stickerSelector();
     document.getElementById('sticker').value = currentSticker.src;

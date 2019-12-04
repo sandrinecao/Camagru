@@ -1,3 +1,4 @@
+// Initialize all variables according to HTML elements
 var canvas = document.getElementById('canvas');
 var canvasCopy = document.getElementById("canvasCopy");
 var context = canvas.getContext('2d');
