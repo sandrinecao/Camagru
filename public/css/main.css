@@ -150,14 +150,13 @@ input::placeholder{
     width: 60px;
 }
 
-/*--------------------------------------------------------GALLERY--------------------------------------------------------------*/
-
 #title{
     text-align: center;
     margin-bottom: -6px;
     padding-top: 16px;
-    font-size:78px;
+    font-size: 78px;
 }
+/*--------------------------------------------------------GALLERY--------------------------------------------------------------*/
 
 #photoDisplay{
     display: flex;
@@ -195,6 +194,7 @@ input::placeholder{
     opacity: 0;
     display: flex;
     justify-content: space-between;
+    font-family: 'Permanent Marker';
 }
 
 #photoDisplay #img:hover #buttons{
@@ -210,7 +210,7 @@ input::placeholder{
 	flex-direction: row;
     justify-content: center;
     margin: 25px 0px 60px 0px;
-    font-family: Permanent Marker;
+    font-family: 'Permanent Marker';
 }
 
 #number{
@@ -411,6 +411,7 @@ input::placeholder{
     color:red;
     margin-bottom: -20px;
     margin-top: 20px;
+    font-family: 'Raleway';
 }
 
  .loginForm form span{
