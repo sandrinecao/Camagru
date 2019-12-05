@@ -455,17 +455,17 @@ input::placeholder{
 }
 
 #account nav {
-  width: 145px;
-  margin-right:25px;
+    width: 145px;
+    margin-right:25px;
 }
 
 #account nav,
 #account article {
-  flex-basis: auto;
+    flex-basis: auto;
 }
 
 #account nav {
-  order: 0;
+    order: 0;
 }
 
 #account nav {
@@ -787,7 +787,6 @@ input::placeholder {
     color: #174873;
     margin-bottom: auto;
 }
-
 
 @media screen and (max-width: 660px) {
 	#camera #sticker_div {width: 100%;height:auto;float: none; min-height: 70px;overflow-y: hidden;overflow-x: auto;white-space: nowrap; float:none}
