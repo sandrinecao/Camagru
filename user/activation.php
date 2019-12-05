@@ -37,7 +37,7 @@ if(isset($_GET['activationCode'])){
 <div style="min-height:250px;">
    <div class="loginForm" style="border:none;background-color:transparent">
         <h2 id="title2">Activate your account</h2>
-        <h3 style="text-align:center"><?php echo $message; ?></h3>
+        <p><?php echo $message; ?></p>
         <input type="submit" value="Login" 
        onclick="window.location='login.php'" />
     </div>

@@ -7,9 +7,9 @@ body{
     background: white;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin:0;
-    padding:0;
-    height:100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     background: url("/public/icons/triangles.png") no-repeat center fixed; 
     -webkit-background-size: cover;
     background-size: cover;
@@ -41,15 +41,10 @@ h2{
     text-align: center;
 }
 
-h3{
-    font-size: xx-large;
-    font-family: 'Raleway';
-}
-
 p{
     text-align: center;
     font-size: 18px;
-    color: white;
+    color: black;
     font-family: 'Raleway';
 }
 
@@ -65,8 +60,6 @@ input[type="submit"]{
 input[type="button"]{
 	cursor : pointer;
 }
-
-
 
 .main{
     max-width: 1000px;
@@ -106,7 +99,7 @@ input::placeholder{
     height: 40px;
     background: linear-gradient(351deg, rgba(212,227,193,1) 0%, rgba(45,89,145,1) 100%);
     opacity: 0.7;
-    width:100%;
+    width: 100%;
 }
 
 @media screen and (max-width: 770px){
