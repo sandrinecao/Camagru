@@ -6,7 +6,7 @@ var video = document.getElementById('video');
 var snap = document.getElementById('snap');
 var overlay_image = document.getElementById("overlay");
 
-//activates webcam
+//retrieves webcam stream
 navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 640, height: 480 } }).then(mediaStream => {
     video.srcObject = mediaStream
     video.onloadedmetadata = function(e) {
