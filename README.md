@@ -1,8 +1,6 @@
 # Camagru
 
-Camagru is a web application allowing you to to take  photos via your webcam using some fun stickers. 
-It allows you to view all the users taken or uploaded photos via the gallery page.
-It's fun, simple and enjoyable for all.
+Camagru is a web application - as part of 42 school's web branch - allowing you to to take photos via your webcam using some fun stickers.
 
 ### Used technologies
 
