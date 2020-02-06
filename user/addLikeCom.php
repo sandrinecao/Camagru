@@ -10,12 +10,11 @@ if(!isset($_SESSION["loggedin"]) && !$_SESSION["loggedin"] === true){
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = strip_tags($data);
     return $data;
 }
 
 $id_photo = $_GET['id'];
-
 if(isset($_GET['id'])){
     $query = $pdo->prepare("SELECT picture.id_img, picture.img, picture.date, users.username 
                             FROM picture 
@@ -61,7 +60,8 @@ $countLikes->bindParam(':id_img', $id_photo);
 $countLikes->execute();
 $likes = $countLikes->fetch(PDO::FETCH_ASSOC);
 
-$comment = test_input($_POST['comment']);
+$comment = (isset($_POST['comment'])) ? test_input($_POST['comment']) : NULL;
+
 
 if (!empty($comment)){
     $query = $pdo->prepare("INSERT INTO comments(id_img, id_user, comment) VALUES(:id_img, :id_user, :comment)");
@@ -70,7 +70,6 @@ if (!empty($comment)){
     $query->bindParam(':comment', $comment);
     $ok = $query->execute();
     if ($ok){
-        //sending email to photo's user if notif are on
         $query = $pdo->query("SELECT email, notif, username 
                                 FROM picture 
                                 JOIN users WHERE picture.id_user = users.id AND picture.id_img = '".$id_photo."'");
@@ -82,7 +81,7 @@ if (!empty($comment)){
             $message = '
                 Hey '.$photoUser['username'].',<br><br>
         
-                You have recieved a new comment on your photo from: 
+                You have received a new comment on your photo from: 
 
                 <p><b>'.$_SESSION['username'].'</b> : <i>"'.$comment.'"</i></p>
             '; 
@@ -93,7 +92,6 @@ if (!empty($comment)){
     header("Location: /user/addLikeCom.php?id=".$id_photo);
 }
 ?>
-
 
 <?php ob_start();?>
 <div class="background galleryB">

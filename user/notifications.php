@@ -5,13 +5,14 @@ require("../config/database.php");
 if(empty($_SESSION['loggedin']))
     header('Location: ../index.php');
 
+$message = '';
 $query = $pdo->prepare("SELECT notif FROM users WHERE id = :id");
 $query->bindParam(':id', $_SESSION['id']);
 $query->execute();
 $data = $query->fetch(PDO::FETCH_ASSOC);
 
 if (isset($_POST['update'])){
-    $checkbox = $_POST['notif'];
+    $checkbox = isset($_POST['notif']) ? isset($_POST['notif']) : NULL;
     if ($checkbox == NULL){
         $notif = 0;
     }else{
@@ -24,9 +25,6 @@ if (isset($_POST['update'])){
     $message = "Your preference has been updated.";
     header("Refresh: 1; url=notifications.php");
 }
-
-
-
 ?>
 
 <?php ob_start(); ?>
@@ -36,9 +34,9 @@ if (isset($_POST['update'])){
             <nav id="account_nav">
                 <a id="EdPro" href="account.php">Edit Profile</a>
                 <a id="EdPwd" href="modifyPassw.php">Edit Password</a>
-                <a id="DelPho" href="deletePhotos.php" >Delete Photos</a>
-                <a id="DelAcc" href="deleteAccount.php" >Delete Account</a>
-                <a id="Notif" href="notifications.php" >Notifications</a>
+                <a id="DelPho" href="deletePhotos.php">Delete Photos</a>
+                <a id="DelAcc" href="deleteAccount.php">Delete Account</a>
+                <a id="Notif" href="notifications.php">Notifications</a>
             </nav>
             <article>
                 <div style="max-height: 705px;" id="a">

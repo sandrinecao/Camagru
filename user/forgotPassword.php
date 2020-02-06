@@ -4,22 +4,31 @@ require("../config/database.php");
 function test_input($data){
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = strip_tags($data);
     return $data;
 }
 
-$error = "";
+$error = $reset_mess = $username_err = $email_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(isset($_POST['forgotPassword'])){
+        $username = test_input($_POST["username"]);
+        if(empty(test_input($_POST["username"]))){
+        $username_err = "Please enter your username.";
+        }else{
+        $username = test_input($_POST["username"]);}
         if(empty(test_input($_POST['email']))){
-            $error = "Please enter an email";
+            $email_err = "Please enter an email address.";
+        }
+        elseif(!filter_var((test_input($_POST["email"])), FILTER_VALIDATE_EMAIL)) {
+        $email_err = "Please enter a valid email address.";
         }else{
             $email = test_input($_POST["email"]);
             $username = test_input($_POST["username"]);
         }  
-        $query = $pdo->prepare('SELECT username FROM users WHERE username = :username');
+        if(empty($username_err) && empty($email_err)){
+        $query = $pdo->prepare("SELECT * FROM users WHERE username = :username AND email = :email");
         $query->bindParam(':username', $username);
+        $query->bindParam(':email', $email);
         $query->execute();
         $userExists = $query->fetch(PDO::FETCH_ASSOC);
         if ($userExists['username']){
@@ -37,12 +46,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
             If this e-mail does not apply to you please ignore it. 
             It appears that you have requested a password reset. 
-
-            To reset your password, please click the link below :
-            http://localhost:8080/user/resetPassword.php?username='.$username.'&reset='.$token.'
+            To reset your password, please click the link below:
+            http://'.$_SERVER['HTTP_HOST'].'/user/resetPassword.php?username='.$username.'&reset='.$token.'
             If you cannot click it, please paste it into your web browser\'s address bar.
             Thanks,
-            The Administration :)';
+            The Camagru Team';
             $headers = 'From:camagru@42.fr' . "\r\n";
             mail($to, $subject, $message, $headers);
             $reset_mess = "Email has been sent to $email";
@@ -60,12 +68,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form method="post" action="" style="margin-top:7%;">
         <input type="text" placeholder="Enter your login" name="username">
           <input type="email" placeholder="Enter your email" name="email">
+          <span><?php echo $username_err; ?></span>
+          <span><?php echo $email_err; ?></span>
           <span><?php echo $error; ?></span><br />
-          <input type="submit" value="Send" name="forgotPassword">
+          <input type="submit" value="Send Link" name="forgotPassword">
         </form>
     </div><br/>
     <div class="loginForm">
-            <p style="text-align:center">Do you know your password? <a href="login.php">Click here to login.</a></p>
+            <p style="text-align:center">Know your password?<a href="login.php"> Login here.</a></p>
     </div><br>
 <?php $view = ob_get_clean();?>
 <?php require("../template.php");?>

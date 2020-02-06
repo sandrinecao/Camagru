@@ -8,13 +8,14 @@ if(empty($_SESSION['loggedin']))
 function test_input($data){
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = strip_tags($data);
     return $data;
 }
 
-$old_password = test_input($_POST['old_password']);
-$new_password = test_input($_POST['new_password']);
-$confirm_password = test_input($_POST['new_confirm_password']);
+$old_password = (isset($_POST['old_password'])) ? test_input($_POST['old_password']) : NULL;
+$new_password = (isset($_POST['new_password'])) ? test_input($_POST['new_password']) : NULL;
+$confirm_password = (isset($_POST['new_confirm_password'])) ? test_input($_POST['new_confirm_password']) : NULL;
+
 
 $password_err = $confirm_password_err = $error = "";
 $message = $message_err = "";
@@ -66,9 +67,9 @@ if (isset($_POST["change_pwd"])){
             <nav id="account_nav">
                 <a id="EdPro" href="account.php">Edit Profile</a>
                 <a id="EdPwd" href="modifyPassw.php">Edit Password</a>
-                <a id="DelPho" href="deletePhotos.php" >Delete Photos</a>
-                <a id="DelAcc" href="deleteAccount.php" >Delete Account</a>
-                <a id="Notif" href="notifications.php" >Notifications</a>
+                <a id="DelPho" href="deletePhotos.php">Delete Photos</a>
+                <a id="DelAcc" href="deleteAccount.php">Delete Account</a>
+                <a id="Notif" href="notifications.php">Notifications</a>
             </nav>
             <article>
                 <div style="max-height: 705px;" id="a">

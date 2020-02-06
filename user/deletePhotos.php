@@ -5,17 +5,20 @@ session_start();
 if(empty($_SESSION['loggedin']))
     header('Location: ../index.php');
 
+$message = "";
+$message_err = "";
+
 if(isset($_POST['delete'])){
     $checkbox = $_POST['check'];
     if(!empty($checkbox)){
-        $del_id = implode(",", $checkbox);
+        $del_id = implode(",", $checkbox); 
         $query = $pdo->prepare("SELECT * FROM picture WHERE id_img IN ($del_id)");
         $query->execute();
         $rowCount = $query->rowCount();
         for($i=0;$i<$rowCount;$i++){
             while($row = $query->fetchAll()){
                 foreach($row as $fileToDelete){
-                    unlink("../".$fileToDelete['img']);    
+                    unlink($fileToDelete['img']);    
                 }
             }
         }
@@ -36,9 +39,9 @@ if(isset($_POST['delete'])){
             <nav id="account_nav">
                 <a id="EdPro" href="account.php">Edit Profile</a>
                 <a id="EdPwd" href="modifyPassw.php">Edit Password</a>
-                <a id="DelPho" href="deletePhotos.php" >Delete Photos</a>
-                <a id="DelAcc" href="deleteAccount.php" >Delete Account</a>
-                <a id="Notif" href="notifications.php" >Notifications</a>
+                <a id="DelPho" href="deletePhotos.php">Delete Photos</a>
+                <a id="DelAcc" href="deleteAccount.php">Delete Account</a>
+                <a id="Notif" href="notifications.php">Notifications</a>
             </nav>
             <article>
                 <div class="loginForm accountForm DelPho">      
@@ -46,7 +49,6 @@ if(isset($_POST['delete'])){
                         <span style="color:green"><?php echo $message; ?></span>
                         <span style="color:red"><?php echo $message_err; ?></span>
                         <div id="deletePhotos">
-                           
                             <form method="POST" action="">
                                 <?php 
                                     $stmt = $pdo->prepare("SELECT img, id_img FROM picture WHERE id_user = :id_user ORDER BY date DESC");

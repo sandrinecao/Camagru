@@ -2,7 +2,7 @@
 require_once("../config/database.php");
 session_start();
 
-if (($_SESSION['loggedin'] == true))
+if (isset($_SESSION['loggedin']))
     header('Location: ../index.php');
  
 $username = $email = $password = $confirm_password = "";
@@ -16,11 +16,14 @@ function test_input($data) {
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Validate username
+
+    $username = test_input($_POST["username"]);
     if(empty(test_input($_POST["username"]))){
         $username_err = "Please enter a username.";
-    } else{
+    } 
+    else if (!preg_match('/^[a-z\d_]{4,20}$/i', $username)) {
+        $username_err = "Username: only alphanumeric, between 4-20 chars, underscores allowed.";
+    }else{
         $sql = "SELECT id FROM users WHERE username = :username";
         
         if($stmt = $pdo->prepare($sql)){
@@ -39,10 +42,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         unset($stmt);
     }
 
-    // Validate email
     if(empty(test_input($_POST["email"]))){
         $email_err = "Please enter an email.";
-    } else{
+    }
+    elseif(!filter_var((test_input($_POST["email"])), FILTER_VALIDATE_EMAIL)) {
+    $email_err = "Please enter a valid email address.";
+    }else{
         $sql = "SELECT id FROM users WHERE email = :email";
         
         if($stmt = $pdo->prepare($sql)){
@@ -51,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if($stmt->execute()){
                 if($stmt->rowCount() == 1){
                     $username_err = "This email is already taken.";
-                } else{
+                } else {
                     $email = test_input($_POST["email"]);
                 }
             } else{
@@ -82,7 +87,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     
-    // Check input errors before inserting in database
     if(empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)){
         $sql = "INSERT INTO users (username, email, password, activation_code, user_status, token, notif)
                 VALUES (:username, :email, :password, :activation_code, :user_status, :token, :notif)";
@@ -104,22 +108,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_notif = 1;
             if($stmt->execute()){
 
-                $to      = $email; // Send email to our user
-                $subject = 'Signup | Verification'; // Give the email a subject 
+                $to      = $email;
+                $subject = 'Signup | Verification';
                 $message = '
 
-                Thanks for signing up!
-                Your account Camagru has been created ! 
-                You can login with the following credentials after you have activated your account by pressing the url below.
+                Thanks for signing up '.$username.'!
+                Your account Camagru has been created! 
 
-                ------------------------
-                Username: '.$username.'
-                Password: '.$password.'
-                ------------------------
-
-                Please click this link to activate your account:
+                Please click or copy/paste this link to activate your account:
                 http://'.$_SERVER['HTTP_HOST'].'/user/activation.php?username='.$username.'&activationCode='.$param_activationCode.'
-
+                Thanks,
+                The Camagru Team
                 '; 
 
                 $headers = 'From:camagru@42.fr' . "\r\n"; 

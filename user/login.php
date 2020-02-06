@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: ../index.php");
 }
@@ -15,7 +14,7 @@ $activation_mess = "";
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = strip_tags($data);
     return $data;
 }
  
@@ -41,19 +40,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_username = $username;
             if($stmt->execute()){
                 if($stmt->rowCount() == 1){
-                    if($row = $stmt->fetchAll()){
-                        $id = $row[0]["id"];
-                        $username = $row[0]["username"];
-                        $hashed_password = $row[0]["password"];
-                        $email = $row[0]["email"];
-                        if ($row[0]["user_status"] == 'verified'){
+                    if($row = $stmt->fetch()){
+                        $id = $row["id"];
+                        $username = $row["username"];
+                        $hashed_password = $row["password"];
+                        $email = $row["email"];
+                        if ($row["user_status"] == 'verified'){
                             if(password_verify($password, $hashed_password)){
                                 session_start();
                                 $_SESSION["loggedin"] = true;
                                 $_SESSION["id"] = $id;
                                 $_SESSION["username"] = $username;                            
                                 $_SESSION["email"] = $email;                            
-                                header("location: ../camera.php");
+                                header("location: /user/camera.php");
                             } else{
                                 $password_err = "The password you entered is not valid.";
                             }

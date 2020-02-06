@@ -1,13 +1,9 @@
-// Initialize all variables according to HTML elements
 var canvas = document.getElementById('canvas');
-var canvasCopy = document.getElementById("canvasCopy");
 var context = canvas.getContext('2d');
 var picture = document.getElementById('upload_img');
 var upload = document.getElementById('uploadBtt');
 var overlay_image = document.getElementById("overlay");
 
-
-// Changes class of selected sticker
 var stickerDisplay = document.getElementById("sticker_div");
 var stickerImg = stickerDisplay.getElementsByClassName("stickerImg");
 for (var i = 0; i < stickerImg.length; i++) {
@@ -19,11 +15,9 @@ for (var i = 0; i < stickerImg.length; i++) {
     });
 }
 
-// Return currently selected sticker
 function stickerSelector() {
-    var header = document.getElementById("sticker_div");
-    var selectedSticker = header.getElementsByClassName("active");
-    return selectedSticker[0];
+    var active_photo = document.getElementsByClassName("active");
+    return active_photo[0];
 }
 
 document.getElementById('uploadPic').onchange = function(e) {
@@ -34,18 +28,16 @@ document.getElementById('uploadPic').onchange = function(e) {
     saveBtt.style.display="block";
   };
 
-function uploadPhoto(){
-    var canvas = document.getElementById("canvasCopy");
-    var photo =  document.getElementById("photo");
-    photo.value = canvas.toDataURL();
-}
-
-
 upload.addEventListener('click', function() {
     var currentSticker = stickerSelector();
     document.getElementById('sticker').value = currentSticker.src;
-    console.log(currentSticker.src);
     context.drawImage(picture, 0, 0, 640, 480);
     context.drawImage(currentSticker, 0, 0, 265, 250); 
-    canvasCopy.getContext('2d').drawImage(picture, 0, 0, 640, 480);
+    canvas.getContext('2d').drawImage(picture, 0, 0, 640, 480);
 });
+
+function uploadPhoto(){
+    var canvas = document.getElementById("canvas");
+    var photo = document.getElementById("photo");
+    photo.value = canvas.toDataURL();
+}

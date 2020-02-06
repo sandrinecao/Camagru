@@ -6,39 +6,38 @@ if(empty($_SESSION['loggedin']))
     header('Location: ../index.php');
 
 $username = $_SESSION['id'];
+$error = '';
 
 function test_input($data){
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = strip_tags($data);
     return $data;
 }
- 
-$password = test_input($_POST['password']);
+
+$password = (isset($_POST['password'])) ? test_input($_POST['password']) : NULL;
 
 if (isset($_POST['delete_account'])){
-    if (isset($password)){ //Checks ifthe password is written
+    if (isset($password)){
         $sql = "SELECT id, password FROM users WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $_SESSION['id']);
         $stmt->execute();
         $hashed_pwd = $stmt->fetch();
-        if(password_verify($password, $hashed_pwd['password'])){ //Checks if the password is correct
+        if(password_verify($password, $hashed_pwd['password'])){
             $query = $pdo->prepare("SELECT * FROM picture WHERE id_user = :id_user");
-            if ($query->execute(array(':id_user' => $_SESSION['id']))){ // Deletes the photos from the file 'upload'
+            if ($query->execute(array(':id_user' => $_SESSION['id']))){
                 $rowCount = $query->rowCount();
                 for($i=0;$i<$rowCount;$i++){
                     while($row = $query->fetchAll()){
                         foreach($row as $fileToDelete){
-                            unlink("../".$fileToDelete['img']);    
+                            unlink($fileToDelete['img']);    
                         }
                     }
                 }
             }
-            //Deletes the user + all the rest
             $pdo->query("DELETE FROM comments WHERE comments.id_user IN ($username)");
 
-            //update the likes where user liked other users photos
             $query = $pdo->prepare("SELECT id_img FROM likes WHERE id_user = ?");
             $query->execute(array($username));
             $res = $query->fetchAll();
@@ -52,7 +51,6 @@ if (isset($_POST['delete_account'])){
 
             $query = $pdo->prepare("DELETE users FROM users WHERE users.id = :id"); 
             $query->bindParam(':id', $_SESSION['id']);
-            //if the query is correct, the account is deleted and the the session is loggued out
             if ($query->execute()){
                 $to      = $_SESSION['email'];
                 $subject = 'Deletion Completed'; 
@@ -61,7 +59,8 @@ if (isset($_POST['delete_account'])){
                     Dear '.$_SESSION['username'].',
             
                     Your account has been deleted.
-                    See you never !
+                    Bye, thank you!
+                    The Camagru Team.
                 '; 
                 $headers = 'From:camagru@42.fr' . "\r\n"; 
                 mail($to, $subject, $message, $headers);
@@ -81,7 +80,6 @@ if (isset($_POST['delete_account'])){
 }
 ?>
 
-
 <?php ob_start(); ?>
 <div class="background galleryB">
     <div id="test">
@@ -89,9 +87,9 @@ if (isset($_POST['delete_account'])){
             <nav id="account_nav">
                 <a id="EdPro" href="account.php">Edit Profile</a>
                 <a id="EdPwd" href="modifyPassw.php">Edit Password</a>
-                <a id="DelPho" href="deletePhotos.php" >Delete Photos</a>
-                <a id="DelAcc" href="deleteAccount.php" >Delete Account</a>
-                <a id="Notif" href="notifications.php" >Notifications</a>
+                <a id="DelPho" href="deletePhotos.php">Delete Photos</a>
+                <a id="DelAcc" href="deleteAccount.php">Delete Account</a>
+                <a id="Notif" href="notifications.php">Notifications</a>
             </nav>
             <article>
                 <div style="max-height: 705px;" id="a">

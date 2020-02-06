@@ -4,15 +4,12 @@ require("../config/database.php");
 function test_input($data){
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = strip_tags($data);
     return $data;
 }
 
-$password_err = $confirm_password_err = "";
-
-$uppercase = preg_match('@[A-Z]@', test_input($_POST["password"]));
-$lowercase = preg_match('@[a-z]@', test_input($_POST["password"]));
-$number    = preg_match('@[0-9]@', test_input($_POST["password"]));
+$password_err = $confirm_password_err = $message = $err_invalid = "";
+$password = $confirm_password = "";
 
 if(isset($_GET['username'])){
     $query = $pdo->prepare('SELECT token FROM users WHERE username = :username');
@@ -20,13 +17,17 @@ if(isset($_GET['username'])){
     $query->execute();
     $token = $query->fetch(PDO::FETCH_ASSOC);
     if ($token['token'] != $_GET['reset']){
-        $err_invalid = 'Invalid link';
+        $err_invalid = 'Invalid link. You will be redirected to the homepage.';
+        header("Refresh: 3; url=../index.php");
     }
 }else{
     header("Location: ../index.php");
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $uppercase = preg_match('@[A-Z]@', test_input($_POST["password"]));
+    $lowercase = preg_match('@[a-z]@', test_input($_POST["password"]));
+    $number    = preg_match('@[0-9]@', test_input($_POST["password"]));
     if(isset($_POST['resetPasswordForm'])){
         if(empty(test_input($_POST['password']))){
             $password_err = "Please enter a password.";     
