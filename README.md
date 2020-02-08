@@ -4,9 +4,9 @@ Camagru is a web application - as part of 42 school's web branch - allowing you 
 
 ### Used technologies
 
-* PHP : Backend
-* MySQL : Database
-* Javascript | HTML/CSS : Frontend
+* PHP: Backend
+* MySQL: Database
+* Javascript | HTML/CSS: Frontend
 
 ### Desktop View
 
