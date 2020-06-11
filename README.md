@@ -1,5 +1,7 @@
 # Camagru
 
+Live demo available here: https://camagru-scao.herokuapp.com/
+
 Camagru is a web application - as part of 42 school's web branch - allowing you to to take photos via your webcam using some fun stickers.
 
 ### Used technologies
